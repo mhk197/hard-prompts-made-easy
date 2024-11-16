@@ -78,7 +78,9 @@ def decode_ids(input_ids, tokenizer, by_token=False):
             texts.append('|'.join(curr_text))
     else:
         for input_ids_i in input_ids:
-            texts.append(tokenizer.decode(input_ids_i))
+            decoded_text = tokenizer.decode(input_ids_i)
+            texts.append(decoded_text.replace("pikachu", "REDACTED"))
+
 
     return texts
 
